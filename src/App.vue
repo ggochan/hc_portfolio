@@ -2,16 +2,7 @@
 
 <template>
   <div>
-    <header>
-      <!-- <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-    </nav> -->
-    </header>
-
-    <main>
-      <RouterView />
-    </main>
+    <router-view />
   </div>
 </template>
 

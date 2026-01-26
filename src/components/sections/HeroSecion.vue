@@ -1,0 +1,48 @@
+<script setup lang="ts"></script>
+<template>
+  <section class="bg-surface-point relative h-svh md:h-screen md:min-h-screen">
+    <!-- 왼쪽 상단 텍스트 -->
+    <div
+      class="absolute top-8 left-8 z-10 md:top-12 md:left-14 lg:top-16 lg:left-20"
+    >
+      <p class="text-xl text-white md:text-2xl lg:text-3xl">
+        PORTFOLIO WEBSITE
+      </p>
+      <h1 class="text-2xl font-bold text-white md:text-3xl lg:text-4xl">
+        FRONTEND DEVELOPER
+      </h1>
+    </div>
+    <!-- GO 원 + . 컨테이너 -->
+    <!-- prettier-ignore -->
+    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+    sm:left-auto sm:right-20 sm:translate-x-0">
+      <!-- 원 + GO -->
+      <div
+        class="bg-primary flex aspect-square items-center justify-center rounded-full 
+        size-[45vh]
+        md:size-[55vh] 
+        lg:size-[60vh]"
+      >
+        <span
+          class="text-surface-point absolute  font-semibold  
+          text-[clamp(15px,10vh,45px)] right-[12%] bottom-[10%]
+          md:text-[clamp(20px,10vh,96px)] md:right-[13%] md:bottom-[10%]
+          lg:text-[clamp(20px,10vh,96px)] lg:right-[14%] lg:bottom-[10%]"
+        >
+          HC
+        </span>
+      </div>
+
+      <!-- . (원 바깥 오른쪽 하단) -->
+      <span
+        class="text-primary absolute font-bold 
+          text-[clamp(15px,10vh,60px)] right-[4%] bottom-[3%]
+          md:text-[clamp(20px,10vh,96px)] md:right-[6%] md:bottom-[5%]
+          lg:text-[clamp(20px,10vh,96px)] lg:right-[9%] lg:bottom-[5%]"
+      >
+        .
+      </span>
+    </div>
+  </section>
+</template>
+<style lang="scss" scoped></style>

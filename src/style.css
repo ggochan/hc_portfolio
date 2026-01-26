@@ -1,28 +1,136 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'General Sans';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('General Sans'),
+    url('https://fonts.cdnfonts.com/s/85793/GeneralSans-Regular.woff')
+      format('woff');
+}
+@font-face {
+  font-family: 'General Sans';
+  font-style: italic;
+  font-weight: 400;
+  src:
+    local('General Sans'),
+    url('https://fonts.cdnfonts.com/s/85793/GeneralSans-Italic.woff')
+      format('woff');
+}
+@font-face {
+  font-family: 'General Sans';
+  font-style: normal;
+  font-weight: 200;
+  src:
+    local('General Sans'),
+    url('https://fonts.cdnfonts.com/s/85793/GeneralSans-Extralight.woff')
+      format('woff');
+}
+@font-face {
+  font-family: 'General Sans';
+  font-style: italic;
+  font-weight: 200;
+  src:
+    local('General Sans'),
+    url('https://fonts.cdnfonts.com/s/85793/GeneralSans-ExtralightItalic.woff')
+      format('woff');
+}
+@font-face {
+  font-family: 'General Sans';
+  font-style: normal;
+  font-weight: 300;
+  src:
+    local('General Sans'),
+    url('https://fonts.cdnfonts.com/s/85793/GeneralSans-Light.woff')
+      format('woff');
+}
+@font-face {
+  font-family: 'General Sans';
+  font-style: italic;
+  font-weight: 300;
+  src:
+    local('General Sans'),
+    url('https://fonts.cdnfonts.com/s/85793/GeneralSans-LightItalic.woff')
+      format('woff');
+}
+@font-face {
+  font-family: 'General Sans';
+  font-style: normal;
+  font-weight: 500;
+  src:
+    local('General Sans'),
+    url('https://fonts.cdnfonts.com/s/85793/GeneralSans-Medium.woff')
+      format('woff');
+}
+@font-face {
+  font-family: 'General Sans';
+  font-style: italic;
+  font-weight: 500;
+  src:
+    local('General Sans'),
+    url('https://fonts.cdnfonts.com/s/85793/GeneralSans-MediumItalic.woff')
+      format('woff');
+}
+@font-face {
+  font-family: 'General Sans';
+  font-style: normal;
+  font-weight: 600;
+  src:
+    local('General Sans'),
+    url('https://fonts.cdnfonts.com/s/85793/GeneralSans-Semibold.woff')
+      format('woff');
+}
+@font-face {
+  font-family: 'General Sans';
+  font-style: italic;
+  font-weight: 600;
+  src:
+    local('General Sans'),
+    url('https://fonts.cdnfonts.com/s/85793/GeneralSans-SemiboldItalic.woff')
+      format('woff');
+}
+@font-face {
+  font-family: 'General Sans';
+  font-style: normal;
+  font-weight: 700;
+  src:
+    local('General Sans'),
+    url('https://fonts.cdnfonts.com/s/85793/GeneralSans-Bold.woff')
+      format('woff');
+}
+@font-face {
+  font-family: 'General Sans';
+  font-style: italic;
+  font-weight: 700;
+  src:
+    local('General Sans'),
+    url('https://fonts.cdnfonts.com/s/85793/GeneralSans-BoldItalic.woff')
+      format('woff');
+}
 
 @theme {
   /* 폰트 */
   --font-sans: 'General Sans', sans-serif;
 
-  /* 색상 */
-  /* bg color */
-  --color-bg-primary:#F7F7FB;
-  --color-bg-point:#E9D4C7;
-  --color-bg-dark:#2B331A;
+  /* 배경 색상 */
+  --color-surface: #f7f7fb;
+  --color-surface-point: #e9d4c7;
+  --color-surface-dark: #2b331a;
 
-  /* font color */
-  --color-font-black:#020715;
-  --color-font-gray:#7F7F7F;
-  --color-font-white:#FCFCFC;
+  /* 텍스트 색상 */
+  --color-black: #020715;
+  --color-gray: #7f7f7f;
+  --color-white: #fcfcfc;
 
-  /* basic color */
-  --color-primary:#F08B60;
-  --color-primary-light:#FAB99E;
-  --color-primary-dark:#A8715A;
-  --color-secondary:#665549;
-  --color-secondary-light:#9E8D81;
-  --color-secondary-dark:#432E20;
-  --color-point:#025730;
-  --color-point-light:#107B4A;
-  --color-point-dark:#084026;
+  /* 브랜드 색상 */
+  --color-primary: #f08b60;
+  --color-primary-light: #fab99e;
+  --color-primary-dark: #a8715a;
+  --color-secondary: #665549;
+  --color-secondary-light: #9e8d81;
+  --color-secondary-dark: #432e20;
+  --color-point: #025730;
+  --color-point-light: #107b4a;
+  --color-point-dark: #084026;
 }
