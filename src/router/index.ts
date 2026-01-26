@@ -4,7 +4,7 @@ import { staticRoutes } from './pages'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   //scroll 유지
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(_to, _from, savedPosition) {
     if (savedPosition) return savedPosition
     return { top: 0 }
   },
