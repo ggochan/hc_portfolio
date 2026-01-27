@@ -24,7 +24,7 @@
       >
         <span
           class="text-surface-point absolute  font-semibold  
-          text-[clamp(15px,10vh,45px)] right-[12%] bottom-[10%]
+          text-[clamp(15px,10vh,45px)] right-[13%] bottom-[10%]
           md:text-[clamp(20px,10vh,96px)] md:right-[13%] md:bottom-[10%]
           lg:text-[clamp(20px,10vh,96px)] lg:right-[14%] lg:bottom-[10%]"
         >
