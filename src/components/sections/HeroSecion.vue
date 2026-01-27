@@ -14,12 +14,11 @@
     </div>
     <!-- GO 원 + . 컨테이너 -->
     <!-- prettier-ignore -->
-    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-    sm:left-auto sm:right-20 sm:translate-x-0">
+    <div class="absolute top-1/2  left-auto -translate-y-1/2 right-10 sm:right-20 ">
       <!-- 원 + GO -->
       <div
         class="bg-primary flex aspect-square items-center justify-center rounded-full 
-        size-[45vh]
+        size-[40vh]
         md:size-[55vh] 
         lg:size-[60vh]"
       >
