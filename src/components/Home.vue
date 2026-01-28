@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import HeroSecion from './sections/HeroSecion.vue'
-import IntroSecion from './sections/IntroSecion.vue'
+import HeroSection from './sections/HeroSection.vue'
+import IntroSection from './sections/IntroSection.vue'
 import MainSection from './sections/MainSection.vue'
 </script>
 <template>
-  <HeroSecion />
-  <IntroSecion />
+  <HeroSection />
+  <IntroSection />
   <MainSection />
 </template>
 <style lang="scss" scoped></style>
