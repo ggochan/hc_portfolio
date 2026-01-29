@@ -10,9 +10,9 @@ import { ProjectData } from '../data/mainData'
       Project
     </p>
 
-    <div class="px-10 pt-1 md:px-20 md:pt-10">
+    <div class="px-0 pt-1 lg:px-10 lg:pt-5">
       <div
-        class="grid grid-cols-[repeat(auto-fit,minmax(300px,320px))] justify-center gap-6 lg:grid-cols-[repeat(auto-fit,minmax(250px,350px))] xl:grid-cols-3"
+        class="gird-cols-1 grid justify-center gap-6 sm:grid-cols-[repeat(auto-fit,minmax(300px,320px))] lg:grid-cols-[repeat(auto-fit,minmax(300px,330px))] xl:grid-cols-3"
       >
         <div class="col-span-full -mb-5 flex justify-end pe-1">
           <button class="text-gray transition-colors hover:text-gray-700">
