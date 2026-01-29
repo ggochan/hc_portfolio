@@ -17,7 +17,9 @@ const typeLabel = computed(() => {
 })
 </script>
 <template>
-  <div class="border-custom-border-default flex flex-col rounded-lg border p-4">
+  <div
+    class="border-custom-border-default flex flex-col rounded-lg border p-3 md:p-4"
+  >
     <label
       :class="typeLabel.bg"
       class="line-clamp-3 w-fit rounded-lg px-3 py-1 text-sm text-white md:text-base"
