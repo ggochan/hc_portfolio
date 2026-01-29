@@ -1,15 +1,11 @@
-export interface Period {
-  startDate: Date | string | null
-  endDate: Date | string
-}
-
-export interface CategoryItem {
+import type { Period } from './Common'
+interface inforItem {
   name: string
   content: string[]
   period: Period[] | null
 }
 
-export interface CategoryData {
+export interface Category {
   title: string
-  infor: CategoryItem[]
+  infor: inforItem[]
 }
