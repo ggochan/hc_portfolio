@@ -32,7 +32,7 @@ export const CategoryData: Record<string, Category> = {
       },
       {
         name: '비트교육센터',
-        content: ['.Net 과목 초, 고급 수료'],
+        content: ['.Net 초, 고급 수료'],
         period: [
           { startDate: '2020-07', endDate: '2020-08' },
           { startDate: '2020-12', endDate: '2021-02' },
