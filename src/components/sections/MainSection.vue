@@ -12,7 +12,7 @@ import { ProjectData } from '../data/mainData'
 
     <div class="px-10 pt-1 md:px-20 md:pt-10">
       <div
-        class="grid grid-cols-[repeat(auto-fit,minmax(300px,350px))] justify-center gap-6 md:grid-cols-[repeat(auto-fit,minmax(350px,400px))] 2xl:grid-cols-3"
+        class="grid grid-cols-[repeat(auto-fit,minmax(300px,320px))] justify-center gap-6 lg:grid-cols-[repeat(auto-fit,minmax(250px,350px))] xl:grid-cols-3"
       >
         <div class="col-span-full -mb-5 flex justify-end pe-1">
           <button class="text-gray transition-colors hover:text-gray-700">

@@ -4,8 +4,8 @@ import IntroSection from './sections/IntroSection.vue'
 import MainSection from './sections/MainSection.vue'
 </script>
 <template>
-  <HeroSection />
-  <IntroSection />
-  <MainSection />
+  <HeroSection id="home" />
+  <IntroSection id="about" />
+  <MainSection id="project" />
 </template>
 <style lang="scss" scoped></style>
