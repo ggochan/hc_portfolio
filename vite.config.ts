@@ -14,7 +14,6 @@ export default defineConfig({
       imports: [
         'vue', // ref, reactive, computed, watch 등
         'vue-router', // useRoute, useRouter 등
-        '@vueuse/core', // useDark, useMouse 등 (선택)
         'pinia',
       ],
       dts: 'src/auto-imports.d.ts', // 타입 자동 생성

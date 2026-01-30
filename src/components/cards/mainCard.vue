@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Project } from '@/types/Project'
 import { useDayjs } from '@/composable/useDayjs'
+import { projectTypeConfig } from '../data/projectType'
 
 const { formatProjectPeriod } = useDayjs()
 
@@ -9,16 +10,15 @@ const props = defineProps<{
 }>()
 
 const typeLabel = computed(() => {
-  const isMain = props.project.type === 1
-  return {
-    text: isMain ? 'Main' : 'Side',
-    bg: isMain ? 'bg-primary' : 'bg-primary-light',
-  }
+  return (
+    projectTypeConfig[props.project.type as keyof typeof projectTypeConfig] ??
+    projectTypeConfig[1]
+  )
 })
 </script>
 <template>
   <div
-    class="border-custom-border-default flex flex-col rounded-lg border p-3 md:p-4"
+    class="border-custom-border-default hover:border-primary flex flex-col rounded-lg border bg-white p-3 transition-all duration-300 hover:-translate-x-0.5 hover:shadow-lg md:p-4"
   >
     <label
       :class="typeLabel.bg"
@@ -33,20 +33,22 @@ const typeLabel = computed(() => {
       {{ formatProjectPeriod(props.project.period, props.project.status) }}
     </span>
     <span
-      class="text-gray border-custom-border-default my-3 border-l-2 ps-2 text-xs md:text-sm"
+      class="text-gray border-custom-border-default my-5 border-l-2 ps-2 text-xs md:text-sm"
     >
       {{ props.project.content }}
     </span>
-    <div class="text-gray flex-col py-3 text-xs md:text-sm">
+    <div
+      class="text-gray flex flex-col gap-y-2.5 pb-5 text-xs md:text-sm lg:gap-y-3.5"
+    >
       <div class="flex">
         <span class="min-w-20">담당업무</span>
         <span>{{ props.project.task.join(', ') }}</span>
       </div>
-      <div class="mt-2 flex">
+      <div class="flex">
         <span class="min-w-20">참여인원</span>
         <span>{{ `${props.project.personnel} 명` }}</span>
       </div>
-      <div class="mt-2 flex items-start">
+      <div class="flex items-start">
         <span class="min-w-20">개발환경</span>
         <div class="flex flex-col">
           <span v-for="(item, sIdx) in props.project.skills" :key="sIdx">
@@ -57,9 +59,10 @@ const typeLabel = computed(() => {
     </div>
     <div class="mt-auto flex justify-end">
       <button
-        class="text-gray text-xs transition-colors hover:text-gray-700 md:text-sm"
+        class="text-gray hover:text-primary cursor-pointer text-xs transition-colors md:text-sm"
       >
-        More →
+        <span>More</span>
+        <span class="ms-1.5">→</span>
       </button>
     </div>
   </div>

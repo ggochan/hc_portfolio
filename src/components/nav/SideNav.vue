@@ -22,6 +22,18 @@ const scrollTo = (id: string) => {
   }, 1000)
 }
 
+// 스크롤이 페이지 끝에 도달하면 마지막 섹션 활성화
+const handleScroll = () => {
+  if (ignoreObserver) return
+
+  const scrollBottom = window.scrollY + window.innerHeight
+  const pageHeight = document.documentElement.scrollHeight
+
+  if (pageHeight - scrollBottom < 50) {
+    activeSection.value = 'contact'
+  }
+}
+
 onMounted(() => {
   observer = new IntersectionObserver(
     (entries) => {
@@ -41,10 +53,13 @@ onMounted(() => {
     const el = document.getElementById(id)
     if (el) observer?.observe(el)
   })
+
+  window.addEventListener('scroll', handleScroll)
 })
 
 onUnmounted(() => {
   observer?.disconnect()
+  window.removeEventListener('scroll', handleScroll)
 })
 </script>
 
@@ -54,14 +69,14 @@ onUnmounted(() => {
       <li v-for="section in sections" :key="section.id" class="ms-auto">
         <button
           @click="scrollTo(section.id)"
-          class="group flex items-center gap-2"
+          class="group flex cursor-pointer items-center gap-2"
         >
           <span
             class="text-sm transition-colors"
             :class="
               activeSection === section.id
-                ? 'text-gray font-medium'
-                : 'text-gray-400 group-hover:text-gray-600'
+                ? 'text-gray font-light'
+                : 'font-light text-gray-400 group-hover:text-gray-600'
             "
           >
             {{ section.label }}
@@ -70,7 +85,7 @@ onUnmounted(() => {
             class="h-8 rounded transition-all"
             :class="
               activeSection === section.id
-                ? 'bg-gray w-1'
+                ? 'bg-gray w-0.5'
                 : 'bg-custom-border-default group-hover:bg-gray w-0.5'
             "
           />

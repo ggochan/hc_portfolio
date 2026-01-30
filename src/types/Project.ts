@@ -6,7 +6,7 @@ interface Skill {
   tools: string[]
 }
 
-// type 1: Main / 2: Side
+// type 1: Main / 2: Sube / 3: Personal
 // status 0: 완료, 1: 진행중, 2: (참여종료)
 export interface Project {
   type: number

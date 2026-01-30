@@ -7,11 +7,11 @@ export const staticRoutes: RouteRecordRaw[] = [
   },
   {
     path: '/home',
-    name: 'Home',
     component: () => import('@/layouts/HomeLayout.vue'),
     children: [
       {
         path: '',
+        name: 'Home',
         component: () => import('@/components/Home.vue'),
         meta: {
           title: 'Home',
