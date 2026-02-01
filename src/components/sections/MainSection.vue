@@ -2,7 +2,7 @@
 import { onClickOutside } from '@vueuse/core'
 import MainCard from '../cards/MainCard.vue'
 import DropDownFilter from '../common/DropDownFilter.vue'
-import { ProjectData } from '../data/mainData'
+import { ProjectData } from '../../data/mainData'
 
 // 필터 상태
 const filterOptions = ['All', 'Main', 'Sub', 'Personal'] as const

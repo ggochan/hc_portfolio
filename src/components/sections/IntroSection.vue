@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDayjs } from '@/composable/useDayjs'
-import { IntroData, CategoryData } from '../data/introData'
+import { IntroData, CategoryData } from '../../data/introData'
 
 const { formatPeriod } = useDayjs()
 </script>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Project } from '@/types/Project'
 import { useDayjs } from '@/composable/useDayjs'
-import ProjectTypeLabel from '../labels/projectTypeLabel.vue'
+import ProjectTypeLabel from '../labels/ProjectTypeLabel.vue'
 
 const { formatProjectPeriod } = useDayjs()
 
@@ -204,7 +204,7 @@ const isHorizontal = computed(() => {
               :alt="image.alt"
               class="border-custom-border-default rounded-lg border object-cover"
               :class="
-                isHorizontal ? 'h-32 w-auto md:h-48' : 'h-56 w-auto md:h-80'
+                isHorizontal ? 'h-32 w-auto md:h-48' : 'h-40 w-auto md:h-64'
               "
             />
           </div>

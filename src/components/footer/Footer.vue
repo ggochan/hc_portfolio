@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ContactData } from '../data/contactData'
+import { ContactData } from '../../data/contactData'
 </script>
 <template>
   <div
