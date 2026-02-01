@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { Project } from '@/types/Project'
 import { useDayjs } from '@/composable/useDayjs'
-import { projectTypeConfig } from '../data/projectType'
+import MainCardModal from '@/components/modals/MainCardModal.vue'
+import ProjectTypeLabel from '../labels/projectTypeLabel.vue'
 
 const { formatProjectPeriod } = useDayjs()
 
@@ -9,23 +10,14 @@ const props = defineProps<{
   project: Project
 }>()
 
-const typeLabel = computed(() => {
-  return (
-    projectTypeConfig[props.project.type as keyof typeof projectTypeConfig] ??
-    projectTypeConfig[1]
-  )
-})
+const isModalOpen = ref(false)
 </script>
 <template>
   <div
     class="border-custom-border-default hover:border-primary flex flex-col rounded-lg border bg-white p-3 transition-all duration-300 hover:-translate-x-0.5 hover:shadow-lg md:p-4"
   >
-    <label
-      :class="typeLabel.bg"
-      class="line-clamp-3 w-fit rounded-lg px-3 py-1 text-sm text-white md:text-base"
-    >
-      {{ typeLabel.text }}
-    </label>
+    <!--타입 레이블-->
+    <ProjectTypeLabel :type="project.type" />
     <span class="line-clamp-2 pt-2 text-sm md:text-base">
       {{ props.project.title }}
     </span>
@@ -60,11 +52,19 @@ const typeLabel = computed(() => {
     <div class="mt-auto flex justify-end">
       <button
         class="text-gray hover:text-primary cursor-pointer text-xs transition-colors md:text-sm"
+        @click="isModalOpen = true"
       >
         <span>More</span>
         <span class="ms-1.5">→</span>
       </button>
     </div>
+
+    <MainCardModal
+      v-if="isModalOpen"
+      :is-open="isModalOpen"
+      :project="props.project"
+      @close="isModalOpen = false"
+    />
   </div>
 </template>
 <style lang="scss" scoped></style>

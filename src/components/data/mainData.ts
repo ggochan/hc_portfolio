@@ -2,6 +2,7 @@ import type { Project } from '@/types/Project'
 
 export const ProjectData: Project[] = [
   {
+    index: 1,
     type: 1,
     status: 0,
     title:
@@ -16,8 +17,69 @@ export const ProjectData: Project[] = [
       dev: ['Docker', 'GitHub'],
       tools: ['VS Code', 'Android Studio', 'XCode'],
     },
+    gallery: {
+      web: {
+        desktop: [
+          {
+            src: 'images/project_1/c_admin_dashboard/c_admin_dashboard_0.webp',
+            alt: '0',
+          },
+          {
+            src: '/images/project_1/c_admin_dashboard/c_admin_dashboard_1.webp',
+            alt: '1',
+          },
+          {
+            src: '/images/project_1/c_admin_dashboard/c_admin_dashboard_2.webp',
+            alt: '2',
+          },
+          {
+            src: '/images/project_1/c_admin_dashboard/c_admin_dashboard_3.webp',
+            alt: '3',
+          },
+        ],
+      },
+      userApp: {
+        android: [
+          {
+            src: '/images/project_1/c_user_android/c_user_android_0.webp',
+            alt: '0',
+          },
+          {
+            src: '/images/project_1/c_user_android/c_user_android_1.webp',
+            alt: '1',
+          },
+          {
+            src: '/images/project_1/c_user_android/c_user_android_2.webp',
+            alt: '2',
+          },
+          {
+            src: '/images/project_1/c_user_android/c_user_android_3.webp',
+            alt: '3',
+          },
+          {
+            src: '/images/project_1/c_user_android/c_user_android_4.webp',
+            alt: '4',
+          },
+        ],
+        ios: [
+          {
+            src: '/images/project_1/c_user_ios/c_user_ios_0.webp',
+            alt: '0',
+          },
+          {
+            src: '/images/project_1/c_user_ios/c_user_ios_1.webp',
+            alt: '1',
+          },
+          {
+            src: '/images/project_1/c_user_ios/c_user_ios_2.webp',
+            alt: '2',
+          },
+        ],
+      },
+    },
   },
   {
+    index: 2,
     type: 2,
     status: 0,
     title: 'HCU 검수 프로그램 개발',
@@ -32,6 +94,7 @@ export const ProjectData: Project[] = [
     },
   },
   {
+    index: 3,
     type: 1,
     status: 0,
     title:
@@ -48,6 +111,7 @@ export const ProjectData: Project[] = [
     },
   },
   {
+    index: 4,
     type: 2,
     status: 0,
     title: '가스미터 검수 프로그램 개발',
@@ -62,6 +126,7 @@ export const ProjectData: Project[] = [
     },
   },
   {
+    index: 5,
     type: 1,
     status: 2,
     title:
@@ -78,6 +143,7 @@ export const ProjectData: Project[] = [
     },
   },
   {
+    index: 6,
     type: 1,
     status: 0,
     title: '브릿지 서버&모니터링 대시보드 웹 개발',

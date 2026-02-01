@@ -1,4 +1,4 @@
 export interface Period {
-  startDate: Date | string | null
-  endDate: Date | string | null
+  startDate?: Date | string
+  endDate?: Date | string
 }

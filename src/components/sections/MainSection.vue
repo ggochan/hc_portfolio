@@ -18,7 +18,7 @@ onClickOutside(filterRef, () => {
 })
 
 // 필터링된 프로젝트
-const filteredProjects = computed(() => {
+const filteredProjects = computed<typeof ProjectData>(() => {
   switch (selectedFilter.value) {
     case 'All':
       return ProjectData

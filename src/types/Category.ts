@@ -2,7 +2,7 @@ import type { Period } from './Common'
 interface inforItem {
   name: string
   content: string[]
-  period: Period[] | null
+  period?: Period[]
 }
 
 export interface Category {

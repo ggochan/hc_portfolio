@@ -3,7 +3,7 @@ import type { Category } from '@/types/Category'
 export const IntroData = {
   title: '안녕하세요,\n프론트엔드 개발자 고해찬입니다.',
   content:
-    '여러 경험을 통해, 이제 <span class="text-primary font-medium">\'웹의 깊이\'</span>에 집중하고자 하는 3년 차 프론트 엔드 개발자입니다.<br><br>3년간 한 회사에서 Vue 2/3, Android(Java), iOS(Swift), C# WPF 개발을 담당하며 <span class="text-primary font-medium">설계부터 배포까지 전 과정을 경험</span>했습니다. 하지만 여러 기술을 다루다 보니 특정 영역에서 깊이 있는 전문성을 쌓아야 한다는 필요성을 느꼈고, 웹 프론트엔드에 집중하기로 결정했습니다.<br><br>현재는 <span class="text-primary font-medium">Vue 3</span> 기반으로 개발하고 있으며, <span class="text-primary font-medium">React/React Native</span> 학습을 통해 프론트엔드 전문성을 먼저 확보한 후, 장기적으로는 서버 개발까지 아우르는 풀스택 개발자로 성장하고자 합니다.',
+    '여러 경험을 통해, 이제 <span class="text-primary font-medium">\'웹의 깊이\'</span>에 집중하고자 하는 3년 차 프론트 엔드 개발자입니다.<br><br>3년간 한 회사에서 Vue 2/3, Android(Java), iOS(Swift), C# WPF 개발을 담당하며 <span class="text-primary font-medium">설계부터 배포까지 전 과정을 경험</span>했습니다. 하지만 여러 기술을 다루다 보니 특정 영역에서 깊이 있는 전문성을 쌓아야 한다는 필요성을 느꼈고, 웹 프론트엔드에 집중하기로 결정했습니다.<br><br>현재는 <span class="text-primary font-medium">Vue, Nuxt</span> 기반으로 개발하며 프론트엔드 전문성을 쌓고 있습니다. 향후 <span class="text-primary font-medium">React & Next, React Native</span> 까지 학습을 통해 전문성을 더욱 확장하고 싶습니다. 장기적으로는 서버 개발까지 아우르는 풀스택 개발자로 성장하고자 합니다.',
 }
 
 export const CategoryData: Record<string, Category> = {
@@ -61,12 +61,12 @@ export const CategoryData: Record<string, Category> = {
       {
         name: '정보처리산업기사',
         content: ['정보처리산업기사'],
-        period: [{ startDate: null, endDate: new Date('2019-05-22') }],
+        period: [{ endDate: new Date('2019-05-22') }],
       },
       {
         name: '정보처리기사',
         content: ['정보처리기사'],
-        period: [{ startDate: null, endDate: new Date('2022-06-17') }],
+        period: [{ endDate: new Date('2022-06-17') }],
       },
     ],
   },
@@ -76,17 +76,14 @@ export const CategoryData: Record<string, Category> = {
       {
         name: 'FrontEnd',
         content: ['Vue 2/3', 'TypeScript'],
-        period: null,
       },
       {
         name: 'Application',
         content: ['Android(Java)', 'Swift', 'WPF'],
-        period: null,
       },
       {
         name: 'Dev',
         content: ['Docker', 'Vite'],
-        period: null,
       },
       {
         name: 'Tools',
@@ -97,7 +94,6 @@ export const CategoryData: Record<string, Category> = {
           'Visual Studio',
           'GitHub',
         ],
-        period: null,
       },
     ],
   },

@@ -8,11 +8,11 @@ const { formatPeriod } = useDayjs()
   <!--자기소개 섹션-->
   <section class="h-auto bg-white p-8 pb-8 md:p-14 md:pb-0 lg:p-20 lg:pb-0">
     <!-- 소개 타이틀 -->
-    <p
+    <h1
       class="text-primary text-xl font-medium whitespace-pre-line md:text-2xl lg:text-3xl"
     >
       {{ IntroData.title }}
-    </p>
+    </h1>
     <div class="mt-3 md:mt-6 xl:grid xl:grid-cols-3 xl:grid-rows-1 xl:gap-x-20">
       <!-- 소개 내용 -->
       <div class="">

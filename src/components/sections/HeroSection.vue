@@ -1,18 +1,16 @@
 <script setup lang="ts"></script>
 <template>
-  <section
-    class="bg-surface-point @container relative min-h-70 md:min-h-screen"
-  >
+  <section class="bg-surface-point relative min-h-70 md:min-h-screen">
     <!-- 왼쪽 상단 텍스트 -->
     <div
       class="absolute top-8 left-8 z-10 md:top-12 md:left-14 lg:top-16 lg:left-20"
     >
-      <p class="text-xl text-white md:text-2xl lg:text-3xl">
+      <h1 class="text-xl text-white md:text-2xl lg:text-3xl">
         PORTFOLIO WEBSITE
-      </p>
-      <h1 class="text-2xl font-bold text-white md:text-3xl lg:text-4xl">
-        FRONTEND DEVELOPER
       </h1>
+      <h2 class="text-2xl font-bold text-white md:text-3xl lg:text-4xl">
+        FRONTEND DEVELOPER
+      </h2>
     </div>
     <!-- GO 원 + . 컨테이너 -->
     <!-- prettier-ignore -->
