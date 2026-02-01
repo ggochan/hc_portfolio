@@ -123,6 +123,18 @@ const currentImages = computed(() => {
 const isHorizontal = computed(() => {
   return activeSubTab.value === 'desktop' || activeSubTab.value === 'window'
 })
+
+// 이미지 로딩 상태 추적
+const loadedImages = ref<Set<number>>(new Set())
+
+// 탭이 바뀔 때 로딩 상태 초기화
+watch([activeTab, activeSubTab], () => {
+  loadedImages.value = new Set()
+})
+
+function onImageLoad(idx: number) {
+  loadedImages.value.add(idx)
+}
 </script>
 <template>
   <!-- 모달로 포커싱 -->
@@ -158,60 +170,78 @@ const isHorizontal = computed(() => {
           <span class="text-gray text-sm md:text-base">
             {{ formatProjectPeriod(project.period, project.status) }}
           </span>
-          <div class="mt-2 flex gap-1">
-            <button
-              v-for="tab in availableTabs"
-              :key="tab.key"
-              class="px-2.5 py-1.5"
-              :class="
-                activeTab === tab.key
-                  ? 'text-primary border-primary border-b-2'
-                  : 'text-gray hover:text-primary-light border-b-2 border-transparent'
-              "
-              @click="activeTab = tab.key"
+          <!-- 탭 레이아웃 -->
+          <div class="flex w-full flex-col" v-if="currentImages.length">
+            <!-- 메인 탭 레이아웃 -->
+            <div class="mt-2 flex gap-1">
+              <button
+                v-for="tab in availableTabs"
+                :key="tab.key"
+                class="px-2.5 py-1.5 text-sm lg:text-base"
+                :class="
+                  activeTab === tab.key
+                    ? 'text-primary border-primary border-b-2'
+                    : 'text-gray hover:text-primary-light border-b-2 border-transparent'
+                "
+                @click="activeTab = tab.key"
+              >
+                {{ tab.label }}
+              </button>
+            </div>
+            <!-- 서브 탭 레이아웃 -->
+            <div
+              class="bg-surface-input inline-flex rounded-lg rounded-t-none p-2"
             >
-              {{ tab.label }}
-            </button>
+              <button
+                v-for="sub in availableSubTabs"
+                :key="sub.key"
+                class="rounded-lg px-3 py-1 text-xs lg:text-sm"
+                :class="
+                  activeSubTab === sub.key
+                    ? 'bg-white text-black shadow-sm'
+                    : 'text-gray'
+                "
+                @click="activeSubTab = sub.key"
+              >
+                {{ sub.label }}
+              </button>
+            </div>
           </div>
-
-          <div
-            class="bg-surface-input inline-flex rounded-lg rounded-t-none p-2"
-          >
-            <button
-              v-for="sub in availableSubTabs"
-              :key="sub.key"
-              class="rounded-md px-3 py-1 text-sm"
-              :class="
-                activeSubTab === sub.key
-                  ? 'bg-white text-black shadow-sm'
-                  : 'text-gray'
-              "
-              @click="activeSubTab = sub.key"
-            >
-              {{ sub.label }}
-            </button>
-          </div>
-
           <!-- 이미지 갤러리 -->
           <div
             v-if="currentImages.length"
             class="mt-4 flex gap-3 overflow-x-auto pb-2"
           >
-            <img
+            <div
               v-for="(image, idx) in currentImages"
               :key="idx"
-              :src="image.src"
-              :alt="image.alt"
-              class="border-custom-border-default rounded-lg border object-cover"
-              :class="
-                isHorizontal ? 'h-32 w-auto md:h-48' : 'h-40 w-auto md:h-64'
-              "
-            />
+              class="relative shrink-0"
+            >
+              <!-- 스켈레톤 -->
+              <div
+                v-if="!loadedImages.has(idx)"
+                class="bg-surface-input absolute inset-0 animate-pulse rounded-lg"
+              />
+              <!-- 이미지 -->
+              <img
+                :src="image.src"
+                :alt="image.alt"
+                class="border-custom-border-default rounded-lg border object-cover transition-opacity duration-300"
+                :class="[
+                  isHorizontal ? 'h-32 w-auto md:h-48' : 'h-40 w-auto md:h-64',
+                  loadedImages.has(idx) ? 'opacity-100' : 'opacity-0',
+                ]"
+                @load="onImageLoad(idx)"
+              />
+            </div>
           </div>
-          <div v-else class="px-1 py-2">
+          <div
+            v-else
+            class="bg-surface-input mt-2 rounded-lg px-2 py-3 text-sm lg:text-base"
+          >
             이미지 없이 기능 위주로 구현된 프로젝트입니다.
           </div>
-          <p class="text-gray">{{ project.content }}</p>
+          <p class="text-gray mt-2">{{ project.content }}</p>
         </div>
       </div>
     </Transition>
