@@ -11,7 +11,7 @@ interface ProjectImage {
 }
 
 interface ProjectGallery {
-  web?: {
+  adminWeb?: {
     desktop: ProjectImage[]
     mobile?: ProjectImage[]
   }
@@ -29,6 +29,10 @@ interface ProjectGallery {
   }
   windowApp?: {
     window: ProjectImage[]
+  }
+  web?: {
+    desktop: ProjectImage[]
+    mobile?: ProjectImage[]
   }
 }
 // type 1: Main / 2: Sube / 3: Personal

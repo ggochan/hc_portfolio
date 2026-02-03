@@ -53,7 +53,7 @@ export const ProjectData: Project[] = [
         },
       ],
       gallery: {
-        web: {
+        adminWeb: {
           desktop: [
             {
               src: 'images/c_project/c_admin_dashboard/c_admin_dashboard_0.webp',
@@ -149,7 +149,7 @@ export const ProjectData: Project[] = [
     type: 2,
     status: 0,
     title: '제어 유닛(HCU) 검수 윈도우 프로그램 개발',
-    content: 'TCP/IP 통신 프로토콜 기반 HCU 보드 검수 프로그램 개발',
+    content: 'TCP / IP 통신 프로토콜 기반 HCU 보드 검수 프로그램 개발',
     period: { startDate: '2022-12', endDate: '2023-02' },
     task: ['Window Application'],
     personnel: 2,
@@ -160,7 +160,7 @@ export const ProjectData: Project[] = [
     },
     more: {
       summary: [
-        '제어 유닛(HCU)과 TCP/IP 통신을 통해 장비 데이터를 수집·검증하는 Windows 클라이언트 프로그램',
+        '제어 유닛(HCU)과 TCP / IP 통신을 통해 장비 데이터를 수집·검증하는 Windows 클라이언트 프로그램',
       ],
       config: [
         'Windows 클라이언트 (C#, WPF)',
@@ -264,7 +264,7 @@ export const ProjectData: Project[] = [
         },
       ],
       gallery: {
-        web: {
+        adminWeb: {
           desktop: [
             {
               src: '/images/v_project/v_admin_dashboard/pc/v_admin_dashboard_pc_0.webp',
@@ -402,7 +402,7 @@ export const ProjectData: Project[] = [
     type: 2,
     status: 0,
     title: '가스미터 검수 윈도우 프로그램 개발',
-    content: 'TCP/IP 통신 프로토콜 기반 가스미터 기기 검수 프로그램 개발',
+    content: 'TCP / IP 통신 프로토콜 기반 가스미터 기기 검수 프로그램 개발',
     period: { startDate: '2024-10', endDate: '2024-12' },
     task: ['Window Application'],
     personnel: 2,
@@ -413,7 +413,7 @@ export const ProjectData: Project[] = [
     },
     more: {
       summary: [
-        '수치를 검증하는 추가 기기와 TCP/IP 통신을 통해 장비 데이터를 수집·검증하는 Windows 클라이언트 프로그램',
+        '수치를 검증하는 추가 기기와 TCP / IP 통신을 통해 장비 데이터를 수집·검증하는 Windows 클라이언트 프로그램',
       ],
       config: [
         'Windows 클라이언트 (C#, WPF)',
@@ -501,7 +501,7 @@ export const ProjectData: Project[] = [
     status: 0,
     title: '브릿지 서버&모니터링 대시보드 웹 개발',
     content:
-      '다수 업체 데이터의 브릿지 서버 경유 메인 서버 수집 구조 및 모니터링 시스템 개발',
+      '다수 업체의 데이터 수집과 메인 서버로 전송하는 브릿지 서버 및 모니터링 대시보드 개발',
     period: { startDate: '2025-06', endDate: '2025-10' },
     task: ['FrontEnd'],
     personnel: 3,
@@ -511,15 +511,65 @@ export const ProjectData: Project[] = [
       tools: ['VS Code'],
     },
     more: {
-      summary: [''],
-      config: [''],
-      role: [''],
+      summary: [
+        '다수 업체로부터 수집되는 데이터를 중간 브릿지 서버를 통해 메인 서버로 전달되는 구조로써, 데이터 흐름을 시각적으로 확인하고 관리하기 위한 모니터링 웹 대시보드를 개발한 프로젝트',
+      ],
+      config: [
+        'Vue 3 기반 모니터링 대시보드 웹',
+        'C 계열 기반 업체 수집서버',
+        'Spring Boot 메인 서버',
+      ],
+      role: [
+        'Vue 3 기반 모니터링 웹 대시보드 설계 및 개발 담당',
+        'Tailwind CSS를 활용한 데이터 중심 UI 구현',
+        'JSON 스키마 기반 동적 테이블 구조 설계 및 업체 확장 대응',
+      ],
       point: [
         {
-          title: '',
-          content: [''],
+          title:
+            '업체 → 브릿지 서버 → 메인 서버로 이어지는 데이터 흐름을 시각화한 모니터링 화면 구성',
+        },
+        {
+          title:
+            'JSON 스키마 변경만으로 테이블 컬럼이 자동 생성되는 유연한 UI 구조',
+        },
+        {
+          title:
+            '대량 · 로우 레벨 데이터 특성을 고려한 테이블 렌더링 및 화면 구성',
         },
       ],
+      gallery: {
+        web: {
+          desktop: [
+            {
+              src: '/images/bridge_project/pc/bridge_pc_0.webp',
+              alt: '0',
+            },
+            {
+              src: '/images/bridge_project/pc/bridge_pc_1.webp',
+              alt: '1',
+            },
+            {
+              src: '/images/bridge_project/pc/bridge_pc_2.webp',
+              alt: '2',
+            },
+            {
+              src: '/images/bridge_project/pc/bridge_pc_3.webp',
+              alt: '3',
+            },
+          ],
+          mobile: [
+            {
+              src: '/images/bridge_project/mobile/bridge_mobile_0.webp',
+              alt: '0',
+            },
+            {
+              src: '/images/bridge_project/mobile/bridge_mobile_1.webp',
+              alt: '1',
+            },
+          ],
+        },
+      },
     },
   },
 ]

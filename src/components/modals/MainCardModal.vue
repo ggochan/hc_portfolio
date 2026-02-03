@@ -29,11 +29,12 @@ function handleKeydown(e: KeyboardEvent) {
   }
 }
 const tabLabels: Record<string, string> = {
-  web: '관리자 웹',
+  adminWeb: '관리자 웹',
   userApp: '유저 앱',
   storeApp: '매장 앱',
   windowApp: '윈도우 앱',
   storeWeb: '매장 웹',
+  web: '웹',
 }
 
 const subTabLabels: Record<string, string> = {
@@ -248,7 +249,7 @@ const isPointOpen = ref(true)
           </div>
           <div
             v-else
-            class="bg-surface-input text-secondary-dark mt-2 rounded-lg px-2 py-3 text-sm lg:text-base"
+            class="bg-surface-input mt-2 rounded-lg px-2 py-3 text-xs lg:text-sm"
           >
             이미지 없이 기능 위주로 구현된 프로젝트입니다.
           </div>
@@ -347,12 +348,12 @@ const isPointOpen = ref(true)
               </button>
               <div
                 v-show="isPointOpen"
-                class="border-custom-border-default border-s-2 ps-2"
+                class="border-custom-border-default mt-2 border-s-2 ps-2"
               >
                 <div
                   v-for="(point, idx) in project.more.point"
                   :key="idx"
-                  class="mt-2"
+                  class="mt-1"
                 >
                   <div class="flex text-sm lg:text-base">
                     <span>-</span>
