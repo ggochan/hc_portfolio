@@ -29,10 +29,12 @@ function handleKeydown(e: KeyboardEvent) {
   }
 }
 const tabLabels: Record<string, string> = {
-  web: '웹',
+  adminWeb: '관리자 웹',
   userApp: '유저 앱',
   storeApp: '매장 앱',
   windowApp: '윈도우 앱',
+  storeWeb: '매장 웹',
+  web: '웹',
 }
 
 const subTabLabels: Record<string, string> = {
@@ -48,7 +50,7 @@ const activeTab = ref<string | null>('')
 
 // 데이터가 있는 매인 탭 목록 저장
 const availableTabs = computed<{ key: string; label: string }[]>(() => {
-  const gallery = props.project.gallery
+  const gallery = props.project.more.gallery
   if (!gallery) return []
 
   return Object.keys(gallery)
@@ -76,10 +78,10 @@ const activeSubTab = ref<string | null>('')
 
 // 데이터가 있는 서브 탭 목록 저장
 const availableSubTabs = computed<{ key: string; label: string }[]>(() => {
-  if (!activeTab.value || !props.project.gallery) return []
+  if (!activeTab.value || !props.project.more.gallery) return []
 
-  const tabData = props.project.gallery[
-    activeTab.value as keyof typeof props.project.gallery
+  const tabData = props.project.more.gallery[
+    activeTab.value as keyof typeof props.project.more.gallery
   ] as Record<string, unknown[]> | undefined
 
   if (!tabData) return []
@@ -106,16 +108,15 @@ watch(
 
 // 현재 선택된 탭/서브탭의 이미지 목록
 const currentImages = computed(() => {
-  if (!activeTab.value || !activeSubTab.value || !props.project.gallery)
+  if (!activeTab.value || !activeSubTab.value || !props.project.more.gallery)
     return []
 
-  const tabData = props.project.gallery[
-    activeTab.value as keyof typeof props.project.gallery
+  const tabData = props.project.more.gallery[
+    activeTab.value as keyof typeof props.project.more.gallery
   ] as Record<string, { src: string; alt: string }[]> | undefined
 
   if (!tabData) return []
 
-  console.log(tabData[activeSubTab.value] ?? [])
   return tabData[activeSubTab.value] ?? []
 })
 
@@ -135,6 +136,11 @@ watch([activeTab, activeSubTab], () => {
 function onImageLoad(idx: number) {
   loadedImages.value.add(idx)
 }
+
+// 섹션 접기/펼치기 상태
+const isConfingOpen = ref(true)
+const isRoleOpen = ref(true)
+const isPointOpen = ref(true)
 </script>
 <template>
   <!-- 모달로 포커싱 -->
@@ -150,7 +156,7 @@ function onImageLoad(idx: number) {
 
         <!-- 모달 -->
         <div
-          class="z-10 flex max-h-[90vh] w-full max-w-3xl flex-col overflow-y-auto rounded-lg bg-white p-6 shadow-xl"
+          class="z-10 flex max-h-[90vh] w-full max-w-3xl flex-col overflow-y-auto overscroll-contain rounded-lg bg-white p-6 shadow-xl"
         >
           <div class="flex flex-row justify-between">
             <!--타입 레이블-->
@@ -171,7 +177,13 @@ function onImageLoad(idx: number) {
             {{ formatProjectPeriod(project.period, project.status) }}
           </span>
           <!-- 탭 레이아웃 -->
-          <div class="flex w-full flex-col" v-if="currentImages.length">
+          <div
+            class="flex w-full flex-col"
+            v-if="
+              (currentImages.length && availableTabs.length > 1) ||
+              availableSubTabs.length > 1
+            "
+          >
             <!-- 메인 탭 레이아웃 -->
             <div class="mt-2 flex gap-1">
               <button
@@ -210,7 +222,7 @@ function onImageLoad(idx: number) {
           <!-- 이미지 갤러리 -->
           <div
             v-if="currentImages.length"
-            class="mt-4 flex gap-3 overflow-x-auto pb-2"
+            class="mt-4 flex shrink-0 gap-3 overflow-x-auto pb-2"
           >
             <div
               v-for="(image, idx) in currentImages"
@@ -237,11 +249,134 @@ function onImageLoad(idx: number) {
           </div>
           <div
             v-else
-            class="bg-surface-input mt-2 rounded-lg px-2 py-3 text-sm lg:text-base"
+            class="bg-surface-input mt-2 rounded-lg px-2 py-3 text-xs lg:text-sm"
           >
             이미지 없이 기능 위주로 구현된 프로젝트입니다.
           </div>
-          <p class="text-gray mt-2">{{ project.content }}</p>
+          <!-- 내용 전체 -->
+          <div class="overflow-y-auto">
+            <!-- 개요 -->
+            <div class="mt-4">
+              <h3 class="text-sm font-medium md:text-base">프로젝트 개요</h3>
+              <ul
+                class="border-custom-border-default mt-2 border-s-2 ps-2 text-sm text-black lg:text-base"
+              >
+                <li v-for="(item, idx) in project.more.summary" :key="idx">
+                  <div class="flex">
+                    <span>-</span>
+                    <span v-html="item" class="ms-2"></span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 구성 -->
+            <div class="mt-3">
+              <button
+                class="group hover:text-primary flex cursor-pointer items-center gap-1 text-sm font-medium transition-colors md:text-base"
+                @click="isConfingOpen = !isConfingOpen"
+              >
+                <span class="group-hover:text-primary">프로젝트 구성</span>
+                <span
+                  class="text-gray group-hover:text-primary text-xs transition-transform"
+                  :class="isConfingOpen ? 'rotate-180' : ''"
+                >
+                  ▼
+                </span>
+              </button>
+              <ul
+                v-show="isConfingOpen"
+                class="border-custom-border-default mt-2 border-s-2 ps-2 text-sm text-black lg:text-base"
+              >
+                <li
+                  v-for="(item, idx) in project.more.config"
+                  :key="idx"
+                  class="p-0.5"
+                >
+                  <div class="flex">
+                    <span>-</span>
+                    <span v-html="item" class="ms-2"></span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 기여 내용 (접기/펼치기) -->
+            <div class="mt-3">
+              <button
+                class="group hover:text-primary flex cursor-pointer items-center gap-1 text-sm font-medium transition-colors md:text-base"
+                @click="isRoleOpen = !isRoleOpen"
+              >
+                <span class="group-hover:text-primary">주요 기여 내용</span>
+                <span
+                  class="text-gray group-hover:text-primary text-xs transition-transform"
+                  :class="isRoleOpen ? 'rotate-180' : ''"
+                >
+                  ▼
+                </span>
+              </button>
+              <ul
+                v-show="isRoleOpen"
+                class="border-custom-border-default mt-2 border-s-2 ps-2 text-sm text-black lg:text-base"
+              >
+                <li
+                  v-for="(item, idx) in project.more.role"
+                  :key="idx"
+                  class="p-0.5"
+                >
+                  <div class="flex">
+                    <span>-</span>
+                    <span v-html="item" class="ms-2"></span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 핵심 구현 (접기/펼치기) -->
+            <div class="mt-3">
+              <button
+                class="group hover:text-primary flex cursor-pointer items-center gap-1 text-sm font-medium transition-colors md:text-base"
+                @click="isPointOpen = !isPointOpen"
+              >
+                <span class="group-hover:text-primary">핵심 구현</span>
+                <span
+                  class="text-gray group-hover:text-primary text-xs transition-transform"
+                  :class="isPointOpen ? 'rotate-180' : ''"
+                >
+                  ▼
+                </span>
+              </button>
+              <div
+                v-show="isPointOpen"
+                class="border-custom-border-default mt-2 border-s-2 ps-2"
+              >
+                <div
+                  v-for="(point, idx) in project.more.point"
+                  :key="idx"
+                  class="mt-1"
+                >
+                  <div class="flex text-sm lg:text-base">
+                    <span>-</span>
+                    <span v-html="point.title" class="ms-2"></span>
+                  </div>
+                  <ul
+                    class="text-gray mt-1 text-sm font-medium lg:text-base lg:font-normal"
+                  >
+                    <li
+                      v-for="(content, cIdx) in point.content"
+                      :key="cIdx"
+                      class="p-0.5"
+                    >
+                      <div class="flex">
+                        <span class="ms-1">⇨</span>
+                        <span v-html="content" class="ms-1"></span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </Transition>
