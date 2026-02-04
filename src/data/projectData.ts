@@ -23,7 +23,7 @@ export const ProjectData: Project[] = [
       ],
       config: [
         '총 5종의 사용자 앱 / 매장 관리 앱 / 관리자 대시보드 웹으로 구성',
-        '웹 Vue 2 / 앱 Android(Java), iOS(Swift) Native 기반',
+        '웹 Vue 2 + Vuex + JavaScript / 앱 Android(Java), iOS(Swift) Native 기반',
         'Element-UI 라이브러리를 이용한 UI/UX 구성',
         'IoT 플러그와 BLE 통신을 통해 결제 후 전력 제공',
         'Azure 클라우드 기반 Spring Boot 백엔드 서버',
@@ -234,7 +234,7 @@ export const ProjectData: Project[] = [
       ],
       config: [
         '총 4종의 사용자 앱 / 매장 관리 웹 / 관리자 대시보드 웹으로 구성',
-        '웹 Vue 3 / 앱 Android(Java), iOS(Swift) Native 기반',
+        '웹 Vue 3 + Pinia + TypeScript / 앱 Android(Java), iOS(Swift) Native 기반',
         'IoT 전기차용 플러그와 Wi-SUN 무선 통신을 이용해 전력 제공 후 후불 결제',
         '전기차 개방형 통신 규약(OCPP) 인증',
         'Azure 클라우드 기반 Spring Boot 백엔드 서버',
@@ -472,7 +472,7 @@ export const ProjectData: Project[] = [
       ],
       config: [
         '총 4종의 사용자 앱 / 매장 관리 웹 / 관리자 대시보드 웹으로 구성',
-        '웹 Vue 3 / 앱 Android(Java), iOS(Swift) Native 기반',
+        '웹 Vue 3 + Pinia + TypeScript / 앱 Android(Java), iOS(Swift) Native 기반',
         '선불 결제 방식으로 사용자 통신망 환경에 따라 BLE/LTE로 기기제어',
         'BLE를 통한 기기 LTE 정보 세팅',
         'Azure 클라우드 기반 Spring Boot 백엔드 서버',
@@ -515,14 +515,15 @@ export const ProjectData: Project[] = [
         '다수 업체로부터 수집되는 데이터를 중간 브릿지 서버를 통해 메인 서버로 전달되는 구조로써, 데이터 흐름을 시각적으로 확인하고 관리하기 위한 모니터링 웹 대시보드를 개발한 프로젝트',
       ],
       config: [
-        'Vue 3 기반 모니터링 대시보드 웹',
-        'C 계열 기반 업체 수집서버',
+        'Vue 3 + Tailwind CSS + Pinia 기반 대시보드 웹',
+        'C 계열 기반 업체 수집 서버',
         'Spring Boot 메인 서버',
       ],
       role: [
         'Vue 3 기반 모니터링 웹 대시보드 설계 및 개발 담당',
         'Tailwind CSS를 활용한 데이터 중심 UI 구현',
         'JSON 스키마 기반 동적 테이블 구조 설계 및 업체 확장 대응',
+        'Tanstack Table을 이용한 SSP 구조 데이터 테이블 구현',
       ],
       point: [
         {
@@ -535,7 +536,7 @@ export const ProjectData: Project[] = [
         },
         {
           title:
-            '대량 · 로우 레벨 데이터 특성을 고려한 테이블 렌더링 및 화면 구성',
+            '대량 · 로우 레벨 데이터 특성을 고려한 SSP 테이블 렌더링 및 화면 구성',
         },
       ],
       gallery: {
