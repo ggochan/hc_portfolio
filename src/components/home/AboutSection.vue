@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDayjs } from '@/composable/useDayjs'
-import { IntroData, CategoryData } from '../../data/introData'
+import { AboutData, CategoryData } from '@/data/aboutData'
 
 const { formatPeriod } = useDayjs()
 </script>
@@ -11,14 +11,14 @@ const { formatPeriod } = useDayjs()
     <h1
       class="text-primary text-xl font-medium whitespace-pre-line md:text-2xl lg:text-3xl"
     >
-      {{ IntroData.title }}
+      {{ AboutData.title }}
     </h1>
     <div class="mt-3 md:mt-6 xl:grid xl:grid-cols-3 xl:grid-rows-1 xl:gap-x-20">
       <!-- 소개 내용 -->
       <div class="">
         <p
           class="sm:text-md text-sm font-light text-black lg:text-base"
-          v-html="IntroData.content"
+          v-html="AboutData.content"
         ></p>
       </div>
       <!-- 카테고리 -->

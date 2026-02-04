@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { Project } from '@/types/Project'
 import { useDayjs } from '@/composable/useDayjs'
-import MainCardModal from '@/components/modals/MainCardModal.vue'
-import ProjectTypeLabel from '../labels/ProjectTypeLabel.vue'
+import ProjectCardModal from './ProjectCardModal.vue'
+import ProjectTypeLabel from './ProjectTypeLabel.vue'
 
 const { formatProjectPeriod } = useDayjs()
 
@@ -59,7 +59,7 @@ const isModalOpen = ref(false)
       </button>
     </div>
 
-    <MainCardModal
+    <ProjectCardModal
       v-if="isModalOpen"
       :is-open="isModalOpen"
       :project="props.project"

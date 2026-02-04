@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { onClickOutside } from '@vueuse/core'
-import MainCard from '../cards/MainCard.vue'
-import DropDownFilter from '../common/DropDownFilter.vue'
-import { ProjectData } from '../../data/mainData'
+import ProjectCard from './project/ProjectCard.vue'
+import DropDownFilter from '@/components/common/DropDownFilter.vue'
+import { ProjectData } from '@/data/projectData'
 
 // 필터 상태
 const filterOptions = ['All', 'Main', 'Sub', 'Personal'] as const
@@ -73,7 +73,7 @@ const toggleFilter = () => {
             />
           </div>
         </div>
-        <MainCard
+        <ProjectCard
           v-for="(project, pIdx) in filteredProjects"
           :key="pIdx"
           :project="project"

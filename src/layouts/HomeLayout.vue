@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import SideNav from '@/components/nav/SideNav.vue'
-import Footer from '@/components/footer/Footer.vue'
+import SideNav from '@/components/layout/nav/SideNav.vue'
+import Footer from '@/components/layout/footer/Footer.vue'
 </script>
 <template>
   <div class="w-full">

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Project } from '@/types/Project'
 import { useDayjs } from '@/composable/useDayjs'
-import ProjectTypeLabel from '../labels/ProjectTypeLabel.vue'
+import ProjectTypeLabel from './ProjectTypeLabel.vue'
 
 const { formatProjectPeriod } = useDayjs()
 

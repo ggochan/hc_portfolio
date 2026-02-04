@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { projectTypeConfig } from '../../data/projectType'
+import { projectTypeConfig } from '@/data/projectType'
 
 const props = defineProps<{
   type: number

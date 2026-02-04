@@ -12,21 +12,24 @@ export const staticRoutes: RouteRecordRaw[] = [
       {
         path: '',
         name: 'Home',
-        component: () => import('@/components/Home.vue'),
+        component: () => import('@/views/HomeView.vue'),
         meta: {
-          title: 'Home',
+          title: 'Portfolio',
         },
       },
     ],
   },
-  {
-    path: '/about',
-    name: 'About',
-    component: () => import('@/views/AboutView.vue'),
-  },
+  // {
+  //   path: '/about',
+  //   name: 'About',
+  //   component: () => import('@/views/AboutView.vue'),
+  // },
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: () => import('@/views/NotFoundView.vue'),
+    meta: {
+      title: 'Not Found',
+    },
   },
 ]
