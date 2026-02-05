@@ -29,7 +29,7 @@ export const ProjectData: Project[] = [
         'Azure 클라우드 기반 Spring Boot 백엔드 서버',
       ],
       role: [
-        '외주 개발 산출물 및 전체 구조 파악',
+        '외주 개발 환경 및 내용 인수인계',
         '사용자 앱 · 매장 앱 · 관리자 웹의 프론트엔드 / 앱 개발 및 기능 확장',
         '해외 서비스 확장을 위한 앱 · 웹 추가 개발 및 배포\n(인도네시아, 베트남, 일본, 인도 등)',
         'FW / HW / 백엔드와 협업하며 BLE 통신 및 결제 흐름 연동',
@@ -46,9 +46,9 @@ export const ProjectData: Project[] = [
           content: ['사용자 / 매장 / 관리자 역할 분리 및 기능 구성'],
         },
         {
-          title: '해외 PG 연동 결제 구현',
+          title: '국내외 PG 연동 결제 구현',
           content: [
-            '국가별 해외 PG사 연동을 통한 결제 기능 개발 및 서비스 확장',
+            '국내 및 해외 PG사 연동을 통한 결제 기능 개발 및 서비스 확장',
           ],
         },
       ],
@@ -178,7 +178,7 @@ export const ProjectData: Project[] = [
       ],
       point: [
         {
-          title: 'txt 설정 파일 기반으로 동적 조회/수정/삭제 가능한 구조 설계',
+          title: 'txt 설정 파일 기반으로 동적 CRUD 가능한 구조 구현',
         },
         {
           title:
@@ -240,7 +240,7 @@ export const ProjectData: Project[] = [
         'Azure 클라우드 기반 Spring Boot 백엔드 서버',
       ],
       role: [
-        'Vue 3 + Vuetify 기반 웹 UI/UX 전반 개선 및 화면 구조 재설계',
+        'Vue 3 + Vuetify 기반 웹 반응형 UI/UX 전반 개선 및 화면 구조 재설계',
         '프론트엔드 · 앱(Android / iOS) 개발 담당으로 클라이언트 영역 전반 구현',
         '클라이언트 – 서버 간 제어 · 결제 요청 흐름 연동 및 동작 검증',
       ],
@@ -468,12 +468,12 @@ export const ProjectData: Project[] = [
     },
     more: {
       summary: [
-        '현지화에 맞춘 IoT 플러그와 플랫폼으로 BLE/LTE 통신을 모두 제공하며, 실제 제품화에 초점을 둔 프로젝트',
+        '현지화에 맞춘 IoT 플러그와 플랫폼으로 BLE / LTE 통신을 모두 제공하며, 실제 제품화에 초점을 둔 프로젝트',
       ],
       config: [
         '총 4종의 사용자 앱 / 매장 관리 웹 / 관리자 대시보드 웹으로 구성',
         '웹 Vue 3 + Pinia + TypeScript / 앱 Android(Java), iOS(Swift) Native 기반',
-        '선불 결제 방식으로 사용자 통신망 환경에 따라 BLE/LTE로 기기제어',
+        '선불 결제 방식으로 사용자 통신망 환경에 따라 BLE / LTE로 기기제어',
         'BLE를 통한 기기 LTE 정보 세팅',
         'Azure 클라우드 기반 Spring Boot 백엔드 서버',
       ],
