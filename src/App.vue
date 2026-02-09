@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>
+  <div id="wrap" class="mx-auto max-w-360">
     <router-view />
   </div>
 </template>

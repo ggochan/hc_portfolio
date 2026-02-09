@@ -136,4 +136,6 @@
   --color-point: #025730;
   --color-point-light: #107b4a;
   --color-point-dark: #084026;
+
+  --shadow-card: 0 0 4px rgba(0, 0, 0, 0.25);
 }

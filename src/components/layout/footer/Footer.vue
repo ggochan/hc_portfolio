@@ -3,7 +3,7 @@ import { ContactData } from '@/data/contactData'
 </script>
 <template>
   <div
-    class="bg-secondary-light flex min-h-auto flex-col items-center p-8 md:p-14 lg:min-h-112.5 lg:p-20"
+    class="bg-secondary-light flex min-h-auto flex-col items-center p-8 md:p-14 lg:min-h-94.5 lg:p-20"
   >
     <p
       class="self-start text-xl font-medium tracking-wider text-white sm:text-2xl lg:text-3xl"
@@ -11,9 +11,10 @@ import { ContactData } from '@/data/contactData'
       Contact
     </p>
     <div
-      class="mt-10 flex flex-col gap-x-0 text-sm text-white md:flex-row md:gap-x-10 md:text-base lg:mt-15 lg:gap-x-15 lg:text-lg"
+      class="mt-10 flex w-full flex-col text-sm text-white md:flex-row md:text-base lg:mt-15 lg:text-lg"
     >
-      <div class="flex w-auto flex-col lg:w-120">
+      <div class="hidden lg:block lg:flex-1"></div>
+      <div class="flex flex-1 flex-col">
         <div class="flex p-2.5">
           <span class="min-w-25 font-light lg:min-w-32.5">
             {{ ContactData.email.title }}
@@ -39,21 +40,23 @@ import { ContactData } from '@/data/contactData'
           </a>
         </div>
       </div>
-      <div class="flex p-2.5">
-        <span class="min-w-25 font-light lg:min-w-32.5">
-          {{ ContactData.resume.title }}
-        </span>
-        <div class="flex flex-col gap-y-2.5">
-          <!-- <span class="cursor-pointer hover:underline">
-            {{ ContactData.resume.content[0] }}
-          </span> -->
-          <a
-            class="cursor-pointer hover:underline"
-            href="/resume.pdf"
-            download="고해찬_이력서.pdf"
-          >
-            {{ ContactData.resume.content[1] }}
-          </a>
+      <div class="flex flex-1">
+        <div class="flex justify-end p-2.5 lg:min-w-87.5">
+          <span class="min-w-25 font-light lg:min-w-32.5">
+            {{ ContactData.resume.title }}
+          </span>
+          <div class="flex flex-col gap-y-2.5">
+            <!-- <span class="cursor-pointer hover:underline">
+              {{ ContactData.resume.content[0] }}
+            </span> -->
+            <a
+              class="cursor-pointer hover:underline"
+              href="/resume.pdf"
+              download="고해찬_이력서.pdf"
+            >
+              {{ ContactData.resume.content[1] }}
+            </a>
+          </div>
         </div>
       </div>
     </div>

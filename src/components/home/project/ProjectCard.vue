@@ -14,7 +14,7 @@ const isModalOpen = ref(false)
 </script>
 <template>
   <div
-    class="border-custom-border-default hover:border-primary flex flex-col rounded-lg border bg-white p-3 transition-all duration-300 hover:-translate-x-0.5 hover:shadow-lg md:p-4"
+    class="border-custom-border-default hover:border-primary hover:shadow-card flex flex-col rounded-lg border bg-white p-3 transition-all duration-200 md:p-4"
   >
     <!--타입 레이블-->
     <ProjectTypeLabel :type="project.type" />
@@ -30,7 +30,7 @@ const isModalOpen = ref(false)
       {{ props.project.content }}
     </span>
     <div
-      class="text-gray flex flex-col gap-y-2.5 pb-5 text-xs md:text-sm lg:gap-y-3.5"
+      class="text-gray mt-2.5 flex flex-col gap-y-2.5 pb-5 text-xs md:text-sm lg:gap-y-3.5"
     >
       <div class="flex">
         <span class="min-w-20">담당업무</span>

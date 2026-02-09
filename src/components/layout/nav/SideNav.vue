@@ -64,33 +64,35 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <nav class="fixed top-1/6 right-8 z-50 hidden -translate-y-1/2 lg:block">
-    <ul class="flex flex-col gap-1">
-      <li v-for="section in sections" :key="section.id" class="ms-auto">
-        <button
-          @click="scrollTo(section.id)"
-          class="group flex cursor-pointer items-center gap-2"
-        >
-          <span
-            class="text-sm transition-colors"
-            :class="
-              activeSection === section.id
-                ? 'text-gray font-light'
-                : 'font-light text-gray-400 group-hover:text-gray-600'
-            "
+  <div class="absolute top-0 right-8 hidden h-full lg:block">
+    <nav class="sticky top-1/8 z-50 -translate-y-1/2">
+      <ul class="flex flex-col gap-1">
+        <li v-for="section in sections" :key="section.id" class="ms-auto">
+          <button
+            @click="scrollTo(section.id)"
+            class="group flex cursor-pointer items-center gap-2"
           >
-            {{ section.label }}
-          </span>
-          <div
-            class="h-8 rounded transition-all"
-            :class="
-              activeSection === section.id
-                ? 'bg-gray w-0.5'
-                : 'bg-custom-border-default group-hover:bg-gray w-0.5'
-            "
-          />
-        </button>
-      </li>
-    </ul>
-  </nav>
+            <span
+              class="text-sm transition-colors"
+              :class="
+                activeSection === section.id
+                  ? 'text-gray font-light'
+                  : 'font-light text-gray-400 group-hover:text-gray-600'
+              "
+            >
+              {{ section.label }}
+            </span>
+            <div
+              class="h-8 rounded transition-all"
+              :class="
+                activeSection === section.id
+                  ? 'bg-gray w-0.5'
+                  : 'bg-custom-border-default group-hover:bg-gray w-0.5'
+              "
+            />
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </template>

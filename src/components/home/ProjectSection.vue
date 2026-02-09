@@ -38,12 +38,12 @@ const toggleFilter = () => {
 <template>
   <section class="bg-surface h-auto p-8 md:p-14 lg:p-20">
     <p
-      class="text-primary text-xl font-medium tracking-wider md:text-2xl lg:text-3xl"
+      class="text-primary text-xl font-medium tracking-wider md:text-2xl lg:min-h-21.5 lg:text-3xl"
     >
       Project
     </p>
 
-    <div class="px-0 pt-1 lg:px-10 lg:pt-2.5 xl:px-20">
+    <div class="px-0 pt-2.5 lg:pt-2.5">
       <div
         class="gird-cols-1 grid justify-center gap-2.5 sm:grid-cols-[repeat(auto-fit,minmax(300px,320px))] lg:grid-cols-[repeat(auto-fit,minmax(300px,330px))] xl:grid-cols-3"
       >
@@ -74,7 +74,7 @@ const toggleFilter = () => {
           </div>
         </div>
         <ProjectCard
-          v-for="(project, pIdx) in filteredProjects"
+          v-for="(project, pIdx) in [...filteredProjects].reverse()"
           :key="pIdx"
           :project="project"
         />

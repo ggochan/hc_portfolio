@@ -23,13 +23,13 @@ const { formatPeriod } = useDayjs()
       </div>
       <!-- 카테고리 -->
       <div
-        class="pt-6 md:grid md:grid-cols-2 md:grid-rows-2 md:gap-x-8 lg:col-span-2 lg:pt-6 xl:pt-0"
+        class="pt-6 md:grid md:grid-cols-2 md:grid-rows-2 md:gap-x-8 lg:col-span-2 lg:gap-x-12 lg:pt-6"
       >
         <!-- 카테고리 Title -->
         <div
           v-for="(categoryItem, cidx) in CategoryData"
           :key="cidx"
-          class="flex flex-col items-start overflow-hidden pb-2 last:pb-0 md:pb-0 md:last:-translate-y-16"
+          class="flex min-h-25 max-w-87.5 flex-col items-start overflow-hidden pb-2 last:pb-0 md:pb-0 md:last:-translate-y-16"
         >
           <span
             class="border-custom-border-default sm:text-md min-w-20 border-l-4 ps-2 text-sm font-normal tracking-wider text-balance md:min-w-23 lg:min-w-27 lg:text-lg xl:min-w-30"
@@ -44,13 +44,21 @@ const { formatPeriod } = useDayjs()
               :key="iIdx"
               class="flex w-full items-baseline p-2"
             >
-              <span class="text-primary text-2xl md:text-3xl">•</span>
-              <span
-                class="ms-2 min-w-40 -translate-y-0.5 text-sm md:min-w-35 md:text-sm lg:min-w-40 lg:text-base"
+              <div
+                class="flex min-w-40 flex-row items-center text-sm md:min-w-35 lg:min-w-45 lg:text-base"
               >
-                {{ inforItem.name }}
-              </span>
-              <div class="flex flex-col md:ms-0">
+                <picture class="min-w-4">
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="/icon/bullet_state_none.png"
+                  />
+                  <img src="/icon/bullet_state_none_sm.png" alt="" />
+                </picture>
+                <span class="ms-2">
+                  {{ inforItem.name }}
+                </span>
+              </div>
+              <div class="flex flex-col items-start">
                 <span
                   class="line-clamp-3 -translate-y-0.5 text-xs md:text-sm lg:text-base"
                 >
