@@ -6,76 +6,82 @@ const { formatPeriod } = useDayjs()
 </script>
 <template>
   <!--자기소개 섹션-->
-  <section class="h-auto bg-white p-8 pb-8 md:p-14 md:pb-0 lg:p-20 lg:pb-0">
-    <!-- 소개 타이틀 -->
-    <h1
-      class="text-primary text-xl font-medium whitespace-pre-line md:text-2xl lg:text-3xl"
+  <section class="w-full bg-white">
+    <div
+      class="mx-auto h-auto max-w-360 p-8 pb-8 md:p-14 md:pb-0 lg:p-20 lg:pb-0"
     >
-      {{ AboutData.title }}
-    </h1>
-    <div class="mt-3 md:mt-6 xl:grid xl:grid-cols-3 xl:grid-rows-1 xl:gap-x-20">
-      <!-- 소개 내용 -->
-      <div class="">
-        <p
-          class="sm:text-md text-sm font-light text-black lg:text-base"
-          v-html="AboutData.content"
-        ></p>
-      </div>
-      <!-- 카테고리 -->
-      <div
-        class="pt-6 md:grid md:grid-cols-2 md:grid-rows-2 md:gap-x-8 lg:col-span-2 lg:gap-x-12 lg:pt-6"
+      <!-- 소개 타이틀 -->
+      <h1
+        class="text-primary text-xl font-medium whitespace-pre-line md:text-2xl lg:text-3xl"
       >
-        <!-- 카테고리 Title -->
+        {{ AboutData.title }}
+      </h1>
+      <div
+        class="mt-3 md:mt-6 xl:grid xl:grid-cols-3 xl:grid-rows-1 xl:gap-x-20"
+      >
+        <!-- 소개 내용 -->
+        <div class="">
+          <p
+            class="sm:text-md text-sm font-light text-black lg:text-base"
+            v-html="AboutData.content"
+          ></p>
+        </div>
+        <!-- 카테고리 -->
         <div
-          v-for="(categoryItem, cidx) in CategoryData"
-          :key="cidx"
-          class="flex min-h-25 max-w-87.5 flex-col items-start overflow-hidden pb-2 last:pb-0 md:pb-0 md:last:-translate-y-16"
+          class="pt-6 md:grid md:grid-cols-2 md:grid-rows-2 md:gap-x-8 lg:col-span-2 lg:gap-x-12 lg:pt-6"
         >
-          <span
-            class="border-custom-border-default sm:text-md min-w-20 border-l-4 ps-2 text-sm font-normal tracking-wider text-balance md:min-w-23 lg:min-w-27 lg:text-lg xl:min-w-30"
+          <!-- 카테고리 Title -->
+          <div
+            v-for="(categoryItem, cidx) in CategoryData"
+            :key="cidx"
+            class="flex min-h-25 max-w-87.5 flex-col items-start overflow-hidden pb-2 last:pb-0 md:pb-0 md:last:-translate-y-16"
           >
-            {{ categoryItem.title }}
-          </span>
-
-          <!-- 카테고리 Content -->
-          <ul class="pt-2">
-            <li
-              v-for="(inforItem, iIdx) in categoryItem.infor"
-              :key="iIdx"
-              class="flex w-full items-baseline p-2"
+            <span
+              class="border-custom-border-default sm:text-md min-w-20 border-l-4 ps-2 text-sm font-normal tracking-wider text-balance md:min-w-23 lg:min-w-27 lg:text-lg xl:min-w-30"
             >
-              <div
-                class="flex min-w-40 flex-row items-center text-sm md:min-w-35 lg:min-w-45 lg:text-base"
+              {{ categoryItem.title }}
+            </span>
+
+            <!-- 카테고리 Content -->
+            <ul class="pt-2">
+              <li
+                v-for="(inforItem, iIdx) in categoryItem.infor"
+                :key="iIdx"
+                class="flex w-full items-baseline p-2"
               >
-                <picture class="min-w-4">
-                  <source
-                    media="(min-width: 768px)"
-                    srcset="/icon/bullet_state_none.png"
-                  />
-                  <img src="/icon/bullet_state_none_sm.png" alt="" />
-                </picture>
-                <span class="ms-2">
-                  {{ inforItem.name }}
-                </span>
-              </div>
-              <div class="flex flex-col items-start">
-                <span
-                  class="line-clamp-3 -translate-y-0.5 text-xs md:text-sm lg:text-base"
+                <div
+                  class="flex min-w-40 flex-row items-center text-sm md:min-w-35 lg:min-w-45 lg:text-base"
                 >
-                  {{ inforItem.content.join(', ') }}
-                </span>
-                <template v-if="inforItem.period">
-                  <span
-                    v-for="(periodItem, pIdx) in inforItem.period"
-                    :key="pIdx"
-                    class="text-gray line-clamp-2 text-xs md:text-sm"
-                  >
-                    {{ formatPeriod(periodItem) }}
+                  <picture class="min-w-4">
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="/icon/bullet_state_none.png"
+                    />
+                    <img src="/icon/bullet_state_none_sm.png" alt="" />
+                  </picture>
+                  <span class="ms-2">
+                    {{ inforItem.name }}
                   </span>
-                </template>
-              </div>
-            </li>
-          </ul>
+                </div>
+                <div class="flex flex-col items-start">
+                  <span
+                    class="line-clamp-3 -translate-y-0.5 text-xs md:text-sm lg:text-base"
+                  >
+                    {{ inforItem.content.join(', ') }}
+                  </span>
+                  <template v-if="inforItem.period">
+                    <span
+                      v-for="(periodItem, pIdx) in inforItem.period"
+                      :key="pIdx"
+                      class="text-gray line-clamp-2 text-xs md:text-sm"
+                    >
+                      {{ formatPeriod(periodItem) }}
+                    </span>
+                  </template>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

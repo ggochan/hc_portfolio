@@ -66,28 +66,28 @@ onUnmounted(() => {
 <template>
   <div class="absolute top-0 right-8 hidden h-full lg:block">
     <nav class="sticky top-1/8 z-50 -translate-y-1/2">
-      <ul class="flex flex-col gap-1">
+      <ul class="flex flex-col gap-2">
         <li v-for="section in sections" :key="section.id" class="ms-auto">
           <button
             @click="scrollTo(section.id)"
             class="group flex cursor-pointer items-center gap-2"
           >
             <span
-              class="text-sm transition-colors"
+              class="text-sm transition-all"
               :class="
                 activeSection === section.id
-                  ? 'text-gray font-light'
-                  : 'font-light text-gray-400 group-hover:text-gray-600'
+                  ? 'text-gray block font-light'
+                  : 'hidden font-light text-gray-400 duration-500 group-hover:block group-hover:text-gray-600'
               "
             >
               {{ section.label }}
             </span>
             <div
-              class="h-8 rounded transition-all"
+              class="h-5 w-5 rounded-4xl transition-all"
               :class="
                 activeSection === section.id
-                  ? 'bg-gray w-0.5'
-                  : 'bg-custom-border-default group-hover:bg-gray w-0.5'
+                  ? 'bg-primary'
+                  : 'bg-custom-border-default group-hover:bg-gray'
               "
             />
           </button>
